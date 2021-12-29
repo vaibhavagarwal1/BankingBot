@@ -1,0 +1,489 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: details
+  examples: |
+    - details
+    - DETAILS
+    - DETAILS of my slot
+    - My slots
+    - detail
+    - what are my slots filled?
+
+- intent: tutorial
+  examples: |
+    - What can you do?
+    - What can you help me with?
+    - TUTORIAL
+    - tutorial
+    - I need help
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: login
+  examples: |
+    - i want to login
+    - login
+    - LOGIN
+    - log in
+    - logging in
+    - log in to app
+    - sign in
+    - i want to sign-in
+    - signin
+    - SIGNIN
+    - SIGN in
+
+- intent: signup
+  examples: |
+    - i want to sign-up
+    - SIGNUP
+    - sign-up
+    - sign up
+    - signup
+    - sign up to app
+
+- intent: Login_Signup
+  examples: |
+    - [login](login_signup) 
+    - [signup](login_signup)
+
+- intent: restart
+  examples: |
+    - end session
+    - restart
+    - logout
+    - sign out
+    - end the session
+    - /restart
+
+- intent: name
+  examples: |
+    - my name is [pradyum Soni](name)
+    - name is [pradyum soni](name)
+    - name: [naman soni](name)
+    - [Naman Soni](name)
+    - my name is [Naman Soni](name)
+    - my name [Pradyum](name)
+    - myself [Pradyum Soni](name)
+    - Myself [Pradyum](name)
+    - [naman soni](name)
+    - [naman](name)
+
+- intent: phone
+  examples: |
+    - my phone number is [1234567089](phone)
+    - phone number [1234567089](phone)
+    - [1234567890](phone)
+    - [+917976022298](phone)
+
+- intent: email
+  examples: |
+    - my email ID is [pradyummathriya@gmail.com](email)
+    - email ID [pradyummathriya@gmail.com]](email)
+    - [pradyummathriya@fmail.com](email)
+    - [pradyum.techfest@gmail.com](email)
+    - [pradyummathriya@gmail.com](email)
+    - [naman2math@gmail.com](email)
+    - [jgatmbyt@hotmail.com](email)
+    - [vaibhavagarwal@gmail.com](email)
+    - [naman123@gmail.com](email)
+    - [nitindiwakar95@gmail.com](email)
+    - [naman2math@gmail.com](email)
+    - [jgatmbyt@hotmail.com](email)
+    - [vaibhavagarwal@gmail.com](email)
+    - [naman123@gmail.com](email)
+    - [nitindiwakar95@gmail.com](email)
+    - [naman12345@gmail.com](email)
+    - [hikari2233@gmail.com](email)
+    - [jinaer@hotmail.com](email)
+    - [ninamari@hotmail.com](email)
+    - [naman123@hotmail.com](email)
+
+- intent: password
+  examples: |
+    - my password is [name123as](password)
+    - [Abc@1234](password)
+    - [Abcde@123456](password)
+    - [Jienga@2323](password)
+    - [Abc@1234](password)
+    - [Wrds234@iyru](password)
+    - [weria@We45324](password)
+    - [Asda@12345](password)
+    - [adga@1231](password)
+    - [sdfawe123RRR](password)
+    - [Wrds234@iyru](password)
+    - [weria@We45324](password)
+    - [Asda@12345](password)
+    - [adga@1231](password)
+    - [sdfawe123RRR](password)
+    - [1234W@QWEuty](password)
+    - [hikarI@345](password)
+    - [asdgtre@fdxc123ASD](password)
+    - [asdfyte@rnu123](password)
+    - [Gsdfawe@234GH](password)
+
+- intent: pay_bills
+  examples: |
+    - pay bills
+    - pay my bills
+    - pending bills
+    - show me pending bills
+    - pay pending bills    
+    - pay my [credit card](bill_type) bills
+    - pay [card](bill_type) bill
+    - pay [electric](bill_type) bill
+    - i want to pay my [electricity](bill_type) bill
+    - pay my [gas](bill_type) bill
+    - pay my [electricity](bill_type) bill
+    - pay my [water](bill_type) bill
+    - pay my [dairy](bill_type) bill
+    - pay my [DTH](bill_type) bill
+    - pay my [mobile](bill_type) bill
+    - pay my [insurance](bill_type) bill
+    - pay my [broadband](bill_type) bill
+    - [gas](bill_type) bill
+    - [DTH](bill_type) bill
+    - [electricity](bill_type) bill
+    - [water](bill_type) bill
+    - [insurance](bill_type) bill
+    - [mobile](bill_type) bill
+    - [gas](bill_type)
+    - [DTH](bill_type)
+    - [electricity](bill_type)
+    - [water](bill_type)
+    - [insurance](bill_type)
+    - [mobile](bill_type)   
+
+- intent: card_services
+  examples: |
+    - i want help with [credit card](card_type)
+    - [credit card](card_type)
+    - [credit card](card_type) service
+    - need help with [credit card](card_type)
+    - problems with [credit card](card_type)
+    - i want help with [debit card](card_type)
+    - [debit card](card_type)
+    - [credit card](card_type)
+    - [debit card](card_type) services
+    - [credit card](card_type) services
+
+- intent: pin_change
+  examples: |
+    - pin change
+    - change my pin code
+    - i want to change my pin code
+    - pin code
+    - pin code renewal
+
+- regex: code
+  examples: |
+    - \d{4}
+
+- intent: code
+  examples: |
+    - my pin code is [0569](code)
+    - my code is [0569](code)
+    - [5689](code)
+    - [2256](code)
+    - [1568](code)
+
+- regex: new_code
+  examples: |
+    - \d{4}
+
+- intent: block_card
+  examples: |
+    - block my card
+    - card block
+    - i want to block my card
+    - can you help with card block
+    - block card
+    - block my card immediately
+
+# new card intents
+- intent: new_card
+  examples: |
+    - i want a new card
+    - new card
+    - get a new card
+    - apply for a new [credit](new_card_type) card
+    - apply for a new [debit](new_card_type) card
+    - new [debit](new_card_type) card
+    - new [credit](new_card_type) card
+
+- intent: card_select
+  examples: |
+    - [master](cards_type)
+    - [master](cards_type) card
+    - [vip](cards_type)
+    - [vip](cards_type) card
+    - i want  [master](cards_type) card
+    - i want  [vip](cards_type) card
+    - i don't want any card
+    - master card
+    - vip card
+
+- intent: enter_otp
+  examples: |
+    - my otp is [123456](new_card_otp)
+    - Here is my otp  [123456](new_card_otp)
+    - this is the otp [123456](new_card_otp)
+    - [123456](new_card_otp)
+    - otp [123456](new_card_otp)
+    - otp is [123123](new_card_otp)
+    - otp is [123456](new_card_otp)
+    - otp is [123465](new_card_otp)
+
+- regex: new_card_otp
+  examples: |
+    - \d{6}
+
+- intent: confirm_details
+  examples: |
+    - [confirm](cnfrm)
+    - [edit](cnfrm)
+    
+    
+
+- intent: limit_assessment
+  examples: |
+    - get my limit assessment
+    - assess limit for my card
+    - what is the limit on my card?
+
+- intent: submit
+  examples: |
+    - submit my application
+    - submit
+
+- intent: main_menu
+  examples: |
+    - take me to main menu
+    - main menu
+    - go back to main menu
+    - back to main menu
+    - show the main menu
+
+- intent: resend_otp
+  examples: |
+    - resend otp
+    - re send otp
+    - send otp again
+    - new otp
+    - request for otp resend
+    - request for new otp
+
+- intent: request_checkbook
+  examples: |
+    - i want a checkbook
+    - new checkbook
+    - apply for a checkbook
+    - get a checkbook
+
+- intent: application_form
+  examples: |
+    - i want an application form for new card
+    - application form
+
+- intent: past_transaction_details
+  examples: |
+    - fetch details of transcations
+    - last 5 transactions
+    - show me recent transactions
+    - show me past transcations
+    - what are my last 5 transactions?
+
+- intent: show_more
+  examples: |
+    - show more
+    - display more
+    - show me more than last 5 transactions
+    - show me more transactions
+    - can you show more transactions?
+
+- intent: account_information
+  examples: |
+    - show my account information
+    - display account information
+    - account information
+    - my account information
+    - show me my account information
+
+- intent: pre_approved_offers
+  examples: |
+    - show me pre approved offers
+    - what are the offers I have been pre approved for
+    - pre approved offers
+    - fetch pre approved offers
+
+- intent: more_details
+  examples: |
+    - i need more details
+    - more details
+    - show me more details
+    - need details
+
+- intent: customer_support
+  examples: |
+    - connect me to customer support
+    - customer support
+    - i want to talk to customer support
+    - call customer support
+
+- intent: statement_generation
+  examples: |
+    - i want my statement
+    - generate statement
+    - show my statement
+    - statement generation
+    - generate my statement
+
+#intents for fund transfer
+- intent: fund_transfer
+  examples: |
+    - i want to transfer my funds
+    - i want to do fund transfer
+    - transfer funds
+    - initiate fund transfer
+    - transfer amount
+    - transfer money
+    - fund transfer
+- intent: amount_enter
+  examples: |
+    - Transfer amount is [300](amount)
+    - please tranfer [300](amount) to bank account
+    - [300](amount)
+    - Rupees [300](amount)
+
+
+- intent: add_beneficiary
+  examples: |
+    - add account to transfer money
+    - add new beneficiary
+    - new beneficiary
+    - add account of beneficiary
+
+- intent: continue
+  examples: |
+    - continue with it
+    - looks good
+    - okay
+    - good
+    - proceed
+
+- intent: axis_bank
+  examples: |
+    - add beneficiary in axis bank
+    - beneficiary account in axis bank
+    - axis bank
+  
+- intent: other_bank
+  examples: |
+    - canara bank
+    - hdfc bank
+    - other bank
+    - icici bank
+
+- intent: account_balance
+  examples: |
+    - show me my account balance
+    - get my account balance
+    - account balance
+    - what is my account balance?
+    - my account balance
+
+- intent: account_type
+  examples: |
+    - show my [savings](account_type) account balance
+    - [savings](account_type) account
+    - show my [savings](account_type) account balance.
+    - show me my [loan](account_type) account balance
+    - get my [loan](account_type) account balance
+    - what is my [loan](account_type) account balance?
+
+- intent: open_account
+  examples: |
+    - open an account
+    - open account
+    - new account
+    - open another account
+    - I want to open an account
+    - Let's open an account
+    - Can you please open an account for me?
+
+- intent: date
+  examples: |
+    - [05-30-2021 08-30-2021](date)
+    - date is [05-30-2021 08-30-2021](date)
+
+- intent: welcome_back
+  examples: |
+    - Hi! I am back!
+    - I am here again
+    - Can you please help me again with that
+    - Back
+    - back
+    - again
+
+- intent: goodbye
+  examples: |
+    - goodbye
+    - bye bye!
+
+  
+- intent: bank
+  examples: |
+    - [HDFC Bank](bank)
+    - open acconunt in [ABC Bank](bank)
+    - new account in [HDFC](bank)
+
+- intent: done
+  examples: |
+    - Done
+    - Finished
+    - Completed
+    - Successful
+    - All over
+
+#Change6.2
+
+- intent: add_user_account
+  examples: |
+    - Add my account
+    - add user account
+    - add another account
+

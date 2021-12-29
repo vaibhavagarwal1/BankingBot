@@ -1,0 +1,205 @@
+version: "2.0"
+
+rules:
+
+
+- rule: Greet anytime user greets
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Card Services
+  steps:
+  - intent: card_services
+  - action: utter_card_services
+
+- rule: details
+  steps:
+  - intent: details
+  - action: utter_details
+
+- rule: Tutorial
+  steps:
+  - intent: tutorial
+  - action: utter_tutorial
+
+- rule: restart
+  steps:
+  - intent: restart
+  - action: action_restart
+  - action: utter_greet
+
+- rule: ask otp 
+  steps:
+  - intent: card_select
+  - action: utter_ask_otp
+- rule: ask det
+  steps:
+  - intent: enter_otp
+  - action: action_amount
+- rule: mob no 
+  steps:
+  - intent: confirm_details
+  - action: utter_submit
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+# - rule: Card Services
+#   steps:
+#   - intent: card_services
+#   - action: utter_card_services
+
+- rule: Activate form bill payment
+  steps:
+  - intent: pay_bills
+  - action: bill_payment
+  - active_loop: bill_payment
+
+- rule: Submit form bill payment
+  condition:
+  # Condition that form is active.
+  - active_loop: bill_payment
+  steps:
+  # Form is deactivated
+  - action: bill_payment
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_submit
+  - action: utter_due
+  - action: action_reset_slot
+
+
+
+- rule: pin change
+  steps:
+  - intent: pin_change
+  - action: pin_change_form
+  - active_loop: pin_change_form
+
+
+- rule: Submit form pin change
+  condition:
+  - active_loop: pin_change_form
+  steps:
+  - action: pin_change_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_submit
+  - action: utter_pin_set
+
+
+
+- rule: Activate form add_benificiary
+  steps:
+  - intent: add_beneficiary
+  - action: action_reset_signup
+  - action: add_beneficiary_form
+  - active_loop: add_beneficiary_form
+    
+
+- rule: Submit form
+  condition:
+  # Condition that form is active.
+  - active_loop: add_beneficiary_form
+  steps:
+  # Form is deactivated
+  - action: add_beneficiary_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_submit
+  - action: action_benificiary
+
+- rule: Activate form login
+  steps:
+  - intent: login
+  - action: login_form
+  - active_loop: login_form
+
+- rule: Submit form login
+  condition:
+  # Condition that form is active.
+  - active_loop: login_form
+  steps:
+  # Form is deactivated
+  - action: login_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_submit
+  - action: action_verify
+  - action: action_listen
+
+- rule: Activate form signup
+  steps:
+  - intent: signup
+  - action: signup_form
+  - active_loop: signup_form
+
+- rule: Submit form login
+  condition:
+  # Condition that form is active.
+  - active_loop: signup_form
+  steps:
+  # Form is deactivated
+  - action: signup_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_submit
+  - action: action_signup
+  - action: action_listen
+
+- rule: Activate form add user account
+  steps:
+  - intent: add_user_account
+  - action: add_user_account_form
+  - active_loop: add_user_account_form
+
+- rule: Submit form add user account
+  condition:
+  # Condition that form is active.
+  - active_loop: add_user_account_form
+  steps:
+  # Form is deactivated
+  - action: add_user_account_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_submit
+  - action: action_add_account
+
+# change
+
+
+- rule: Fund Transfer
+  steps:
+  - intent: fund_transfer
+  - action: fund_transfer_form
+  - active_loop: fund_transfer_form
+
+- rule: Submit form add user account
+  condition:
+  # Condition that form is active.
+  - active_loop: fund_transfer_form
+  steps:
+  # Form is deactivated
+  - action: fund_transfer_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_submit
+  - action: action_fund_transfer
+  - action: utter_tutorial
+

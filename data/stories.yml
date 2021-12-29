@@ -1,0 +1,1069 @@
+version: "2.0"
+
+stories:
+
+- story: pay_bills
+  steps:
+  - intent: pay_bills
+  - action: bill_payment
+  - active_loop: bill_payment
+  - slot_was_set:
+    - bill_type: mobile
+
+# - story: pin_change
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: card_services
+#   - action: utter_card_services
+#   - intent: pin_change
+#   - action: pin_change_form
+#   - slot_was_set:
+#     - pin_code: 0569
+#   - action: pin_change_form
+#   - slot_was_set:
+#     - new_code: 2569
+
+- story: card story block card
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: card_services
+  - action: utter_card_services
+  - intent: block_card
+  - action: utter_block_card
+  - intent: affirm
+  - action: utter_done
+
+- story: card story block card
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: card_services
+  - action: utter_card_services
+  - intent: block_card
+  - action: utter_block_card
+  - intent: deny
+  - action: utter_not_done
+
+- story: request checkbook
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_checkbook
+  - action: utter_checkbook
+
+- story: past transaction details
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: past_transaction_details
+  - action: utter_transaction_details
+  - intent: main_menu
+  - action: utter_greet
+
+# - story: past transaction details 2
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: past_transaction_details
+#   - action: utter_transaction_details
+#   - intent: show_more
+#   - action: utter_from_date
+#   - intent: date
+#   - action: action_from_date
+#   - action: utter_to_date
+#   - intent: date
+#   - action: action_to_date
+#   - action: utter_statement
+
+- story: account_information
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: account_information
+  - action: action_account_info
+  - intent: main_menu
+  - action: utter_greet
+
+- story: customer_support
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: customer_support
+  - action: utter_customer_support
+  - intent: main_menu
+  - action: utter_greet
+
+
+#Statement Generation
+- story: statement_generation
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: statement_generation
+  - action: utter_date
+  - intent: date
+  - action: utter_statement
+
+- story: account_balance
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: account_balance
+  - action: utter_choose_account
+  - intent: main_menu
+  - action: utter_greet
+
+- story: new card service
+  steps:
+  - intent: new_card
+  - action: utter_show_card
+  - intent: card_select
+  - action: utter_ask_otp
+  - intent: enter_otp
+  - action: action_amount
+  - intent: confirm_details
+  - action: utter_submit
+
+
+#fund transfer stories
+# - story: fund transfer
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: fund_transfer
+#   - action: utter_ask_benificiary
+#   - action: utter_ask_amount
+#   - intent: amount_enter
+#   - action: utter_amount_success
+
+
+# - story: fund transfer
+#   steps:
+#   - intent: fund_transfer
+#   - action: utter_ask_benificiary
+#   - action: utter_ask_amount
+#   - intent: amount_enter
+#   - action: utter_amount_success
+
+
+  
+#add benificiary
+
+
+- story: signup story
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: signup
+  - action: signup_form
+  - active_loop: signup_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: naman soni
+  - slot_was_set:
+    - name: naman soni
+  - slot_was_set:
+    - requested_slot: phone
+  - slot_was_set:
+    - phone: '9768551034'
+  - slot_was_set:
+    - phone: '9768551034'
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: naman2math@gmail.com
+  - slot_was_set:
+    - email: naman2math@gmail.com
+  - slot_was_set:
+    - requested_slot: password
+  - slot_was_set:
+    - password: Wrds234@iyru
+  - slot_was_set:
+    - password: Wrds234@iyru
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit
+  - action: action_signup
+  - action: action_listen
+  - intent: restart
+  - action: action_restart
+  - action: utter_greet
+
+- story: login story
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: login
+  - action: login_form
+  - active_loop: login_form
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: pradyummathriya@gmail.com
+  - slot_was_set:
+    - email: pradyummathriya@gmail.com
+  - slot_was_set:
+    - requested_slot: password
+  - slot_was_set:
+    - password: Abc@1234
+  - slot_was_set:
+    - password: Abc@1234
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit
+  - action: action_verify
+  - action: action_listen
+
+- story: new card full story
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: signup
+  - action: signup_form
+  - active_loop: signup_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: nitin diwakar
+  - slot_was_set:
+    - name: nitin diwakar
+  - slot_was_set:
+    - requested_slot: phone
+  - slot_was_set:
+    - phone: '8955983232'
+  - slot_was_set:
+    - phone: '8955983232'
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: jgatmbyt@hotmail.com
+  - slot_was_set:
+    - email: jgatmbyt@hotmail.com
+  - slot_was_set:
+    - requested_slot: password
+  - slot_was_set:
+    - password: weria@We45324
+  - slot_was_set:
+    - password: weria@We45324
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit
+  - action: action_signup
+  - intent: tutorial
+  - action: utter_tutorial
+  - intent: card_services
+    entities:
+    - card_type: credit card
+  - action: utter_card_services
+  - intent: new_card
+  - action: utter_show_card
+  - intent: card_select
+    entities:
+    - cards_type: Master
+  - action: utter_ask_otp
+  - intent: enter_otp
+    entities:
+    - new_card_otp: '123123'
+  - slot_was_set:
+    - new_card_otp: '123123'
+  - action: action_amount
+  - slot_was_set:
+    - new_card_otp: None
+  - intent: enter_otp
+    entities:
+    - new_card_otp: '123456'
+  - slot_was_set:
+    - new_card_otp: '123456'
+  - action: action_amount
+  - slot_was_set:
+    - new_card_otp: '123456'
+  - intent: confirm_details
+    entities:
+    - cnfrm: confirm
+  - action: utter_submit
+
+- story: login story 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: signup
+  - action: signup_form
+  - active_loop: signup_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: vaibhav agarwal
+  - slot_was_set:
+    - name: vaibhav agarwal
+  - slot_was_set:
+    - requested_slot: phone
+  - slot_was_set:
+    - phone: '8955983232'
+  - slot_was_set:
+    - phone: '8955983232'
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: vaibhavagarwal@gmail.com
+  - slot_was_set:
+    - email: vaibhavagarwal@gmail.com
+  - slot_was_set:
+    - requested_slot: password
+  - slot_was_set:
+    - password: Asda@12345
+  - slot_was_set:
+    - password: Asda@12345
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit
+  - action: action_signup
+  - intent: tutorial
+  - action: utter_tutorial
+  - intent: card_services
+    entities:
+    - card_type: credit card
+  - action: utter_card_services
+  - intent: new_card
+  - action: utter_show_card
+  - intent: card_select
+    entities:
+    - cards_type: Master
+  - action: utter_ask_otp
+  - intent: enter_otp
+    entities:
+    - new_card_otp: '123465'
+  - slot_was_set:
+    - new_card_otp: '123465'
+  - action: action_amount
+  - slot_was_set:
+    - new_card_otp: None
+  - intent: enter_otp
+    entities:
+    - new_card_otp: '123456'
+  - slot_was_set:
+    - new_card_otp: '123456'
+  - action: action_amount
+  - slot_was_set:
+    - new_card_otp: '123456'
+  - intent: confirm_details
+    entities:
+    - cnfrm: confirm
+  - action: utter_submit
+  - intent: restart
+  - action: action_restart
+  - action: utter_greet
+  - intent: login
+  - action: login_form
+  - active_loop: login_form
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: naman123@gmail.com
+  - slot_was_set:
+    - email: naman123@gmail.com
+  - slot_was_set:
+    - requested_slot: password
+  - slot_was_set:
+    - password: adga@1231
+  - slot_was_set:
+    - password: adga@1231
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit
+  - action: action_verify
+
+- story: pin change story
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: login
+  - action: login_form
+  - active_loop: login_form
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: nitindiwakar95@gmail.com
+  - slot_was_set:
+    - email: nitindiwakar95@gmail.com
+  - slot_was_set:
+    - requested_slot: password
+  - slot_was_set:
+    - password: sdfawe123RRR
+  - slot_was_set:
+    - password: sdfawe123RRR
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit
+  - action: action_verify
+  - intent: tutorial
+  - action: utter_tutorial
+  - intent: card_services
+    entities:
+    - card_type: debit card
+  - action: utter_card_services
+  - intent: pin_change
+  - action: pin_change_form
+  - active_loop: pin_change_form
+  - slot_was_set:
+    - requested_slot: pin_code
+  - slot_was_set:
+    - code: '1234'
+  - slot_was_set:
+    - pin_code: '1234'
+  - slot_was_set:
+    - requested_slot: new_code
+  - slot_was_set:
+    - code: '4567'
+  - slot_was_set:
+    - new_code: '4567'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit
+  - action: utter_pin_set
+
+- story: block card story 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: login
+  - action: login_form
+  - active_loop: login_form
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: naman123@gmail.com
+  - slot_was_set:
+    - email: naman123@gmail.com
+  - slot_was_set:
+    - requested_slot: password
+  - slot_was_set:
+    - password: Abc@1234
+  - slot_was_set:
+    - password: Abc@1234
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit
+  - action: action_verify
+  - intent: tutorial
+  - action: utter_tutorial
+  - intent: card_services
+    entities:
+    - card_type: debit card
+  - action: utter_card_services
+  - intent: block_card
+  - action: utter_block_card
+  - intent: affirm
+  - action: utter_done
+
+- story: block card story 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: login
+  - action: login_form
+  - active_loop: login_form
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: naman12345@gmail.com
+  - slot_was_set:
+    - email: naman12345@gmail.com
+  - slot_was_set:
+    - requested_slot: password
+  - slot_was_set:
+    - password: 1234W@QWEuty
+  - slot_was_set:
+    - password: 1234W@QWEuty
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit
+  - action: action_verify
+  - intent: card_services
+    entities:
+    - card_type: debit card
+  - action: utter_card_services
+  - intent: block_card
+  - action: utter_block_card
+  - intent: deny
+  - action: utter_not_done
+
+- story: account info, pay bills, pre approved offers, statement generation, account balance
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: login
+  - action: login_form
+  - active_loop: login_form
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: ninamari@hotmail.com
+  - slot_was_set:
+    - email: ninamari@hotmail.com
+  - slot_was_set:
+    - requested_slot: password
+  - slot_was_set:
+    - password: asdfyternu123
+  - slot_was_set:
+    - password: asdfyternu123
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit
+  - action: action_verify
+  - intent: account_information
+  - action: utter_account_information
+  - intent: pay_bills
+  - action: bill_payment
+  - active_loop: bill_payment
+  - slot_was_set:
+    - requested_slot: bill_type
+  - slot_was_set:
+    - bill_type: electricity
+  - slot_was_set:
+    - bill_type: electricity
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit
+  - action: utter_due
+  - action: action_reset_slot
+  - slot_was_set:
+    - bill_type: null
+  - intent: pay_bills
+    entities:
+    - bill_type: DTH
+  - slot_was_set:
+    - bill_type: DTH
+  - action: bill_payment
+  - active_loop: bill_payment
+  - slot_was_set:
+    - bill_type: DTH
+  - slot_was_set:
+    - bill_type: DTH
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit
+  - action: utter_due
+  - action: action_reset_slot
+  - slot_was_set:
+    - bill_type: null
+  - intent: pre_approved_offers
+  - action: utter_offers
+  - intent: statement_generation
+  - action: utter_date
+  - intent: date
+    entities:
+    - date: 06-09-2021 05-08-2021
+  - slot_was_set:
+    - date: 06-09-2021 05-08-2021
+  - action: utter_statement
+  - intent: tutorial
+  - action: utter_tutorial
+  - intent: account_balance
+  - action: utter_choose_account
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: login
+  - action: login_form
+  - active_loop: login_form
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: naman123@hotmail.com
+  - slot_was_set:
+    - email: naman123@hotmail.com
+  - slot_was_set:
+    - requested_slot: password
+  - slot_was_set:
+    - password: Gsdfawe234GH
+  - slot_was_set:
+    - password: Gsdfawe234GH
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit
+  - action: action_verify
+  - intent: tutorial
+  - action: utter_tutorial
+  - intent: request_checkbook
+  - action: utter_checkbook
+
+- story: statement generation
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: login
+  - action: login_form
+  - active_loop: login_form
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: naman123@gmail.com
+  - slot_was_set:
+    - email: naman123@gmail.com
+  - slot_was_set:
+    - requested_slot: password
+  - slot_was_set:
+    - password: sdfa12WE
+  - slot_was_set:
+    - password: sdfa12WE
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit
+  - action: action_verify
+  - intent: statement_generation
+  - action: utter_date
+  - intent: date
+    entities:
+    - date: 05-08-2021 06-09-2021
+  - slot_was_set:
+    - date: 05-08-2021 06-09-2021
+  - action: utter_statement
+
+- story: signup story 3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: signup
+  - action: signup_form
+  - active_loop: signup_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: nitin soni
+  - slot_was_set:
+    - name: nitin soni
+  - slot_was_set:
+    - requested_slot: phone
+  - slot_was_set:
+    - phone: '9768551034'
+  - slot_was_set:
+    - phone: '9768551034'
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: nitinsoni@gmail.com
+  - slot_was_set:
+    - email: nitinsoni@gmail.com
+  - slot_was_set:
+    - requested_slot: password
+  - slot_was_set:
+    - password: asdfWER123
+  - slot_was_set:
+    - password: asdfWER123
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit
+  - action: action_signup
+  - intent: tutorial
+  - action: utter_tutorial
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: signup
+  - action: signup_form
+  - active_loop: signup_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: nitin soni
+  - slot_was_set:
+    - name: nitin soni
+  - slot_was_set:
+    - requested_slot: phone
+  - slot_was_set:
+    - phone: '9768551034'
+  - slot_was_set:
+    - phone: '9768551034'
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: nitinsoni@gmail.com
+  - slot_was_set:
+    - email: nitinsoni@gmail.com
+  - slot_was_set:
+    - requested_slot: password
+  - slot_was_set:
+    - password: asdfWER123
+  - slot_was_set:
+    - password: asdfWER123
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit
+  - action: action_signup
+  - intent: tutorial
+  - action: utter_tutorial
+
+- story: button story
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: login
+  - action: login_form
+  - active_loop: login_form
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: naman@hotmail.com
+  - slot_was_set:
+    - email: naman@hotmail.com
+  - slot_was_set:
+    - requested_slot: password
+  - slot_was_set:
+    - password: sdafQWE
+  - slot_was_set:
+    - password: sdafQWE
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit
+  - action: action_verify
+  - intent: tutorial
+  - action: utter_tutorial
+  - intent: block_card
+  - action: utter_card_services
+  - intent: new_card
+  - action: utter_show_card
+  - intent: card_select
+    entities:
+    - cards_type: master
+  - action: utter_ask_otp
+  - intent: enter_otp
+    entities:
+    - otp: '123465'
+  - action: action_amount
+  - slot_was_set:
+    - new_card_otp: None
+  - intent: enter_otp
+    entities:
+    - new_card_otp: '123456'
+  - slot_was_set:
+    - new_card_otp: '123456'
+  - action: action_amount
+  - slot_was_set:
+    - new_card_otp: '123456'
+  - intent: confirm_details
+    entities:
+    - cnfrm: confirm
+  - action: utter_submit
+  - intent: tutorial
+  - action: utter_tutorial
+  - intent: block_card
+  - action: pin_change_form
+  - active_loop: pin_change_form
+  - slot_was_set:
+    - requested_slot: pin_code
+  - slot_was_set:
+    - code: '1234'
+  - slot_was_set:
+    - pin_code: '1234'
+  - slot_was_set:
+    - requested_slot: new_code
+  - slot_was_set:
+    - code: '2563'
+  - slot_was_set:
+    - new_code: '2563'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit
+  - action: utter_pin_set
+  - intent: tutorial
+  - action: utter_tutorial
+  - intent: statement_generation
+  - action: utter_date
+  - intent: date
+    entities:
+    - date: 05-09-2021 06-08-2021
+  - slot_was_set:
+    - date: 05-09-2021 06-08-2021
+  - action: utter_statement
+  - intent: tutorial
+  - action: utter_tutorial
+  - intent: pre_approved_offers
+  - action: utter_offers
+  - intent: tutorial
+  - action: utter_tutorial
+  - intent: account_balance
+  - action: utter_choose_account
+  - intent: tutorial
+  - action: utter_tutorial
+  - intent: account_information
+  - action: action_account_info
+  - intent: tutorial
+  - action: utter_tutorial
+  - intent: pay_bills
+  - action: bill_payment
+  - active_loop: bill_payment
+  - slot_was_set:
+    - requested_slot: bill_type
+  - slot_was_set:
+    - bill_type: electricity
+  - slot_was_set:
+    - bill_type: electricity
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit
+  - action: utter_due
+  - action: action_reset_slot
+  - slot_was_set:
+    - bill_type: null
+  - intent: tutorial
+  - action: utter_tutorial
+  - intent: past_transaction_details
+  - action: utter_transaction_details
+
+- story: mixed story 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: signup
+  - action: signup_form
+  - active_loop: signup_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: lakshmi pati
+  - slot_was_set:
+    - name: lakshmi pati
+  - slot_was_set:
+    - requested_slot: phone
+  - slot_was_set:
+    - phone: '8563214799'
+  - slot_was_set:
+    - phone: '8563214799'
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: lakshmipatpvvv@gmail.com
+  - slot_was_set:
+    - email: lakshmipatpvvv@gmail.com
+  - slot_was_set:
+    - requested_slot: password
+  - slot_was_set:
+    - password: giajdsn231SDFBSKJ
+  - slot_was_set:
+    - password: giajdsn231SDFBSKJ
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit
+  - action: action_signup
+  - intent: tutorial
+  - action: utter_tutorial
+  - intent: block_card
+  - action: utter_card_services
+  - intent: pin_change
+  - action: pin_change_form
+  - active_loop: pin_change_form
+  - slot_was_set:
+    - requested_slot: pin_code
+  - slot_was_set:
+    - code: '1234'
+  - slot_was_set:
+    - pin_code: '1234'
+  - slot_was_set:
+    - requested_slot: new_code
+  - slot_was_set:
+    - code: '2563'
+  - slot_was_set:
+    - new_code: '2563'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit
+  - action: utter_pin_set
+  - intent: new_card
+  - action: utter_show_card
+  - intent: card_select
+    entities:
+    - cards_type: master
+  - action: utter_ask_otp
+  - intent: enter_otp
+    entities:
+    - new_card_otp: '456789'
+  - slot_was_set:
+    - new_card_otp: '456789'
+  - action: action_amount
+  - slot_was_set:
+    - new_card_otp: None
+  - intent: enter_otp
+    entities:
+    - new_card_otp: '123456'
+  - slot_was_set:
+    - new_card_otp: '123456'
+  - action: action_amount
+  - slot_was_set:
+    - new_card_otp: '123456'
+  - intent: details
+  - action: utter_details
+  - intent: tutorial
+  - action: utter_tutorial
+  - intent: statement_generation
+  - action: utter_date
+  - intent: date
+    entities:
+    - date: 06-09-2021 07-08-2021
+  - slot_was_set:
+    - date: 06-09-2021 07-08-2021
+  - action: utter_statement
+
+# NEW CARD CHANGE
+ 
+- story: random story 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: signup
+  - action: signup_form
+  - active_loop: signup_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: niyati agarwal
+  - slot_was_set:
+    - name: niyati agarwal
+  - slot_was_set:
+    - requested_slot: phone
+  - slot_was_set:
+    - phone: '+918653214789'
+  - slot_was_set:
+    - phone: '+918653214789'
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: niyatiagarwal@gmail.com
+  - slot_was_set:
+    - email: niyatiagarwal@gmail.com
+  - slot_was_set:
+    - requested_slot: password
+  - slot_was_set:
+    - password: niyati@123
+  - slot_was_set:
+    - password: niyati@123
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit
+  - action: action_signup
+  - intent: tutorial
+  - action: utter_tutorial
+  - intent: card_services
+  - action: utter_card_services
+  - intent: new_card
+  - action: utter_show_card
+  - intent: card_select
+    entities:
+    - cards_type: master
+  - action: utter_ask_otp
+  - intent: enter_otp
+    entities:
+    - new_card_otp: '898989'
+  - slot_was_set:
+    - new_card_otp: '898989'
+  - action: action_amount
+  - slot_was_set:
+    - new_card_otp: None
+  - intent: enter_otp
+    entities:
+    - new_card_otp: '123456'
+  - slot_was_set:
+    - new_card_otp: '123456'
+  - action: action_amount
+  - slot_was_set:
+    - new_card_otp: '123456'
+  - intent: confirm_details
+    entities:
+    - cnfrm: confirm
+  - action: utter_submit
+
+
+- story: random story 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: signup
+  - action: signup_form
+  - active_loop: signup_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: naman soni
+  - slot_was_set:
+    - name: naman soni
+  - slot_was_set:
+    - requested_slot: phone
+  - slot_was_set:
+    - phone: '+918955983232'
+  - slot_was_set:
+    - phone: '+918955983232'
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: naman@gmail.com
+  - slot_was_set:
+    - email: naman@gmail.com
+  - slot_was_set:
+    - requested_slot: password
+  - slot_was_set:
+    - password: naman@1234
+  - slot_was_set:
+    - password: naman@1234
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit
+  - action: action_signup
+  - intent: tutorial
+  - action: utter_tutorial
+  - intent: limit_assessment
+  - action: utter_card_services
+  - intent: new_card
+  - action: utter_show_card
+  - intent: card_select
+    entities:
+    - cards_type: master
+  - action: utter_ask_otp
+  - intent: enter_otp
+    entities:
+    - new_card_otp: '123465'
+  - slot_was_set:
+    - new_card_otp: '123465'
+  - action: action_amount
+  - slot_was_set:
+    - new_card_otp: None
+  - intent: enter_otp
+    entities:
+    - new_card_otp: '123456'
+  - slot_was_set:
+    - new_card_otp: '123456'
+  - action: action_amount
+  - slot_was_set:
+    - new_card_otp: '123456'
+  - intent: confirm_details
+    entities:
+    - cnfrm: confirm
+  - action: utter_submit

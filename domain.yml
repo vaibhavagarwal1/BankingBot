@@ -1,0 +1,450 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- tutorial:
+    use_entities: true
+- deny:
+    use_entities: true
+- details:
+    use_entities: true
+- Login_Signup:
+    use_entities: true
+- restart:
+    use_entities: true
+- card_services:
+    use_entities: true
+- block_card:
+    use_entities: true
+- new_card:
+    use_entities: true
+- card_select:
+    use_entities: true
+- confirm_details:
+    use_entities: true
+- pin_change:
+    use_entities: true
+- limit_assessment:
+    use_entities: true
+- submit:
+    use_entities: true
+- main_menu:
+    use_entities: true
+- enter_otp:
+    use_entities: true
+- request_checkbook:
+    use_entities: true
+- application_form:
+    use_entities: true
+- past_transaction_details:
+    use_entities: true
+- show_more:
+    use_entities: true
+- account_information:
+    use_entities: true
+- pay_bills:
+    use_entities: true
+- pre_approved_offers:
+    use_entities: true
+- more_details:
+    use_entities: true
+- customer_support:
+    use_entities: true
+- statement_generation:
+    use_entities: true
+- fund_transfer:
+    use_entities: true
+- add_beneficiary:
+    use_entities: true
+- continue:
+    use_entities: true
+- axis_bank:
+    use_entities: true
+- other_bank:
+    use_entities: true
+- account_balance:
+    use_entities: true
+- account_type:
+    use_entities: true
+- open_account:
+    use_entities: true
+- date:
+    use_entities: true
+- code:
+    use_entities: true
+- login:
+    use_entities: true
+- signup:
+    use_entities: true
+- name:
+    use_entities: true
+- phone:
+    use_entities: true
+- email:
+    use_entities: true
+- password:
+    use_entities: true
+- more_services:
+    use_entities: true
+- welcome_back:
+    use_entities: true
+- inform:
+    use_entities: true
+- welcome:
+    use_entities: true
+- bank:
+    use_entities: true
+- done:
+    use_entities: true
+- amount_enter:
+    use_entities: true
+- resend_otp:
+    use_entities: true
+- add_user_account:
+    use_entities: true
+- account_number:
+    use_entities: true
+- amount:
+    use_entities: true
+
+entities:
+- name
+- phone
+- email
+- password
+- bank
+- card_type
+- OTP
+- confirm
+- edit
+- date
+- amount_in_INR
+- beneficiary_details
+- savings_account
+- bill_type
+- account_type
+- pin_code
+- new_code
+- code
+- new_card_type
+- cards_type
+- new_card_otp
+- cnfrm
+- amount
+- login_signup
+- otp
+slots:
+  name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  phone:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  email:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  password:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  date:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  bill_type:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  pin_code:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  new_code:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  code:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  amount:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  new_card_otp:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  login_signup:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  requested_slot:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  account_number:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  bank_name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  branch_address:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+responses:
+  utter_greet:
+  - buttons:
+    - payload: /login
+      title: LOGIN
+    - payload: /signup
+      title: SIGNUP
+    text: Hi! My name is BankBot. Kindly login/signup to proceed.
+  utter_tutorial:
+  - buttons:
+    - payload: /card_services
+      title: Card Services (Pin change, new card, block card, pay dues, limit assessment)
+    - payload: /pay_bills
+      title: PAY BILLS
+    - payload: /statement_generation
+      title: STATEMENT GENERATION
+    - payload: /past_transaction_details
+      title: PAST TRANSACTION DETAILS
+    - payload: /add_user_account
+      title: ADD USER ACCOUNT   
+    - payload: /account_balance
+      title: ACCOUNT BALANCE
+    - payload: /request_checkbook
+      title: REQUEST CHECKBOOK
+    - payload: /account_information
+      title: ACCOUNT INFORMATION
+    - payload: /pre_approved_offers
+      title: PRE-APPROVED-OFFERS
+    - payload: /fund_transfer
+      title: FUND TRANSFER
+    text: Hi! Here is what I can do, let me know what you need help with :-)
+  utter_debit_card:
+  - text: 'Found 1 card: 5286XXXX5890, Master Card, Canara Bank. Would you like to change the pin for this card ? (Yes/No)'
+  utter_goodbye:
+  - text: Bye
+  utter_details:
+  - text: 'Name: {name}, Email: {email}, Phone: {phone}, Password: {password}.'
+  utter_welcome_back:
+  - text: Hi! Welcome Back
+  utter_ask_name:
+  - text: 'Please provide your full name (like this): firstname lastname'
+  utter_ask_phone:
+  - text: 'Hi {name}! Please enter your phone number (like this): +919XX89XX699'
+  utter_ask_email:
+  - text: Great! Please provide your gmail ID (All OTPs will be sent to this mail ID).
+  utter_ask_password:
+  - text: Please provide your password. Add '@' in your password.
+  utter_login:
+  - text: Welcome! I am your banking bot :-) (Pro tip:- Type 'tutorial'...)
+  utter_dt:
+  - text: I found ABC account associated with this phone number. What would you like to do?
+  utter_welcome:
+  - text: Welcome!
+  utter_account_found:
+  - text: Found an account with {name}, {phone}
+  utter_account_not_found:
+  - text: Sorry, I could not find an account with {name}, {phone}. Please login via a different number.
+  utter_ask_bank:
+  - text: Which bank would you like to open an account in?
+  utter_account_opened:
+  - text: I have opened an account with {name}, {phone}, {bank}. You can get the account details via this link:.....
+  utter_open_account:
+  - text: Okay sure, Let's open your account!
+  utter_done:
+  - text: Finished successfully
+  utter_card_services:
+  - text: Sure, let me know what you need help with. For example, pin change, new card etc.
+  utter_block_card:
+  - text: 1 Debit card of Axis Bank found. Shall I block this card?
+  utter_not_done:
+  - text: process cancelled.
+  utter_checkbook:
+  - text: Sure, please follow the link sent to your sms and fill out the application. Thank you!
+  utter_transaction_details:
+  - text: Sure, here are the past 5 transaction. Rs. 100, 200, 300, 400, 500. Type show more for earlier transactions or 'tutorial' to return.
+  utter_date:
+  - text: Sure, please let me know the from date and to date seperated by space in the format mm-dd-yyyy mm-dd-yyyy
+  utter_to_date:
+  - text: Sure, please let me know the to date in the format mm-dd-yyyy
+  utter_account_information:
+  - text: "Acc. No. : 2724Abc12345; Bank: canara bank. Type 'tutorial' to go back"
+  utter_customer_support:
+  - text: You will be receiving a call from our executive within 10 minutes. Type 'Main menu' to go back
+  utter_ask_bill_type:
+  - text: Sure, please tell me which bill you want to pay?
+  utter_due:
+  - text: 'You have XYZ amount due for {bill_type}, please select payment option: GPay, PhonePe, Bhim/UPI.'
+  utter_offers:
+  - text: "Hi! We have found the following offers for you. Please click on the link to apply: https://www.gupshup.io/developer/home Type 'Tutorial' to go back."
+  utter_statement:
+  - text: 'Here is your e statement: Rs.100, Rs. 200, Rs. 300, Rs. 400.'
+  utter_choose_account:
+  - text: 'Accounts associated with {phone number} is only one: 27241290XXCNRB, powai branch. The bank balance is Rs. 1500.'
+  utter_submit:
+  - text: Form submitted.
+  utter_ask_pin_code:
+  - text: Please enter your current pin code.
+  utter_ask_new_code:
+  - text: Please enter new code.
+  utter_pin_set:
+  - text: New pin code - {code}
+  utter_restart:
+  - text: You have been successfully logged out.
+  utter_beneficiary:
+  - text: Beneficiary added.
+  utter_signuplogin:
+  - text: "You have been signed up successfully, please type 'login' now."
+  utter_show_card:
+  - text: |-
+      Here are some cards you are eligible for. Please select a card you wish to apply for 
+        Master card 
+        vip card 
+  utter_ask_otp:
+  - text: Sure please enter the 6 digits otp sent on your registered mobile number
+  utter_confirm_details:
+  - text: |-
+      Please confirm your details: Card number - XXXXX4567, Bank: ABCD, CVV & Temporary will be sent on SMS after you confirm.  
+       enter confirm or if you want to edit enter edit
+  utter_ask_benificiary:
+  - text: Here are your added benificiaries. Please select a benificiary from it or add new benificiary
+  utter_ask_amount:
+  - text: Please Enter the amount to transfer
+  utter_amount_success:
+  - text: Amount Transfer successful
+  utter_ask_detail:
+  - text: Please help me with the following details
+  utter_help:
+  - buttons:
+    - payload: /utter_done
+      title: FAQs
+    - payload: /utter_done
+      title: Customer Support
+    - payload: /utter_done
+      title: Open Account
+    text: Help
+  utter_proceed:
+  - buttons:
+    - payload: /utter_done
+      title: Fund Transfer
+    - payload: /utter_done
+      title: Statement Generation
+    - payload: /utter_done
+      title: Account Balance
+    text: Please enter number digit.
+  utter_ask_account_number:
+  - text: Please enter your Account Number now.
+  utter_ask_bank_name:
+  - text: Please enter your Bank Name now.
+  utter_ask_branch_address:
+  - text: Please enter your Branch Address of bank now. 
+actions:
+- action_submit
+- action_reset_slot
+- action_reset_code
+- action_amount
+- action_add_benificiary
+- action_restart
+- action_signup
+- action_reset_signup
+- action_verify
+- action_benificiary
+- action_account_info
+- action_add_account
+- action_benificiary_info
+- action_transaction_info
+- action_fund_transfer
+forms:
+  bill_payment:
+    required_slots:
+      bill_type:
+      - entity: bill_type
+        type: from_entity
+  pin_change_form:
+    required_slots:
+      new_code:
+      - entity: code
+        type: from_entity
+      pin_code:
+      - entity: code
+        type: from_entity
+  login_form:
+    required_slots:
+      email:
+      - type: from_text
+      password:
+      - type: from_text
+  signup_form:
+    required_slots:
+      name:
+      - type: from_text
+      phone:
+      - type: from_text
+      email:
+      - entity: email
+        intent: email
+        type: from_text
+      password:
+      - type: from_text
+
+  add_beneficiary_form:
+    required_slots:
+      email:
+      - type: from_text
+      name:
+      - type: from_text
+      phone:
+      - type: from_text
+
+  add_user_account_form:
+    required_slots:
+      account_number:
+      - type: from_text
+      bank_name:
+      - type: from_text
+      branch_address:
+      - type: from_text
+
+  fund_transfer_form:
+    required_slots:
+      account_number:
+      - type: from_text
+      amount:
+      - type: from_text
+
+e2e_actions: []
